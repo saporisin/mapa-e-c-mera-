@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://dk5fcqad2gxvf"]
+
+[ext_resource type="Script" uid="uid://c4twtmpd35g57" path="res://alvo.gd" id="1_npyt8"]
+[ext_resource type="Texture2D" uid="uid://de03nrtbn1ehn" path="res://kenney_tiny-battle/Tilemap/tilemap_packed.png" id="2_8cu02"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g0ueq"]
+atlas = ExtResource("2_8cu02")
+region = Rect2(272, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ni86s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g0ueq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i2q6b"]
+radius = 13.1529
+
+[node name="Alvo" type="Area2D"]
+script = ExtResource("1_npyt8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(2.5, 3)
+scale = Vector2(1.3125, 1.375)
+sprite_frames = SubResource("SpriteFrames_ni86s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_i2q6b")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+text = "PARABÉNS !!!!"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
