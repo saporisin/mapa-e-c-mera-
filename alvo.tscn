@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dk5fcqad2gxvf"]
+[gd_scene format=3 uid="uid://dk5fcqad2gxvf"]
 
 [ext_resource type="Script" uid="uid://c4twtmpd35g57" path="res://alvo.gd" id="1_npyt8"]
 [ext_resource type="Texture2D" uid="uid://de03nrtbn1ehn" path="res://kenney_tiny-battle/Tilemap/tilemap_packed.png" id="2_8cu02"]
@@ -13,7 +13,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_g0ueq")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }]
@@ -21,18 +21,18 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_i2q6b"]
 radius = 13.1529
 
-[node name="Alvo" type="Area2D"]
+[node name="Alvo" type="Area2D" unique_id=1717301583]
 script = ExtResource("1_npyt8")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=984063847]
 position = Vector2(2.5, 3)
 scale = Vector2(1.3125, 1.375)
 sprite_frames = SubResource("SpriteFrames_ni86s")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1325671463]
 shape = SubResource("CircleShape2D_i2q6b")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=232101266]
 visible = false
 offset_right = 40.0
 offset_bottom = 23.0
